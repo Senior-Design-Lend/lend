@@ -41,3 +41,10 @@ Thumbs.db
 
 # Virutal environment
 venv/
+# Visual Studio Code
+.vscode/
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
