@@ -1,19 +1,8 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <title>Hello World</title>
-  </head>
-  <body>
-    <div id="wrapper">
-        <h1>Hello World</h1>
-    </div>
-  </body>
-</html>
+{% extends "login/base.html" %}
 
-<style>
-    *
-    {
-        font-family: sans-serif;
-    }
-</style>
+{% block body_block %}
+<div class="jumbotron">
+  <h1>Django Level Five</h1>
+</div>
+
+{% endblock %}
