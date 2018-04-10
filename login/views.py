@@ -3,6 +3,7 @@ from login.forms import UserForm, UserProfileInfoForm
 
 from django.http import HttpResponseRedirect, HttpResponse
 from django.urls import reverse
+from login.models import User, UserProfileInfo
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
 
@@ -12,7 +13,8 @@ def index(request):
 
 @login_required
 def special(request):
-    return HttpResponse("You are logged in!")
+    username = User.username
+    return render(request,'login/index.html', {'username':username})
 
 @login_required
 def user_logout(request):

@@ -27,7 +27,6 @@ def populate(N=5):
         item = Item.objects.get_or_create(name=fake_item_name, price=fake_item_price, condition=fake_condition, owner=user)
 
 
-
 if __name__ == '__main__':
     print("Populating Database")
     populate(20)
