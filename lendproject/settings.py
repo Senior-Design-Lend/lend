@@ -27,7 +27,9 @@ SECRET_KEY = 'u15*ymu-9r=cq&y%&@wb)g-+dd-#xl$i0$q%b0qxdr+cl_e=s*'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+        "lend-farhasan.c9users.io"
+    ]
 
 
 # Application definition
@@ -81,11 +83,11 @@ WSGI_APPLICATION = 'lendproject.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'sample_db',
-        'USER': '',
-        'PASSWORD': '',
+        'NAME': 'lend',
+        'USER': 'ubuntu',
+        'PASSWORD': 'DBpassword',
         'HOST': 'localhost',
-        'PORT': '5432',
+        'PORT': '',
     }
 }
 

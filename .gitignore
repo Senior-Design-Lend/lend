@@ -41,3 +41,7 @@ Thumbs.db
 
 # Virutal environment
 venv/
+
+# Stuff from Cloud9
+.c9
+.git
