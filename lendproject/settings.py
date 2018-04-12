@@ -41,6 +41,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_extensions',
     'login',
+    'widget_tweaks',
+    'rest_framework',
+    'chat',
 ]
 
 MIDDLEWARE = [
@@ -135,7 +138,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIR = [STATIC_DIR,]
+STATICFILES_DIR = [STATIC_DIR]
 
 MEDIA_ROOT = MEDIA_DIR
 MEDIA_URL = '/media/'

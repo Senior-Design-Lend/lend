@@ -23,5 +23,6 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('login/', include('login.urls')),
     path('logout/', views.user_logout, name='logout'),
-    path('special/', views.special,name='special')
+    path('special/', views.special,name='special'),
+    path('chats/', include('chat.urls'), name='chat'),
 ]
