@@ -24,5 +24,5 @@ urlpatterns = [
     path('login/', include('login.urls')),
     path('logout/', views.user_logout, name='logout'),
     path('special/', views.special,name='special'),
-    path('chats/', include('chat.urls'), name='chat'),
+    path('', include('chat.urls'), name='chat'),
 ]
