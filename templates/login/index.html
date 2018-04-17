@@ -1,9 +1,68 @@
+<style>
+  .banner_img
+  {
+    overflow: hidden;
+  }
+  
+  .banner
+  {
+    width: 100%;
+    height: 30em;
+    background: url("https://i.imgur.com/9she0C8.jpg");
+    background-size: cover;
+    text-align: center;
+  }
+  
+  .banner > h1
+  {
+    font-size: 3em;
+    font-weight: bold;
+    line-height: 10em;
+    color: white;
+    text-shadow: 0px 2px 2px rgba(150, 150, 150, 1);
+  }
+  
+  #about
+  {
+    padding-left: 6em;
+    padding-right: 6em;
+    padding-top: 4em;
+    text-align: center;
+  }
+  
+  #about > h1
+  {
+    font-size: 4.5em;
+    font-weight: bold;
+  }
+  
+  #about > h3
+  {
+    padding-bottom: 3em;
+    line-height: 1.7;
+  }
+  
+  #about > img
+  {
+    padding-bottom: 0;
+  }
+</style>
+
 {% extends "../base.html" %}
 
 {% block body_block %}
-<div class="jumbotron">
-  <h1>Django Level Five</h1>
-  <h1>{{ user.userprofileinfo.city }}</h1>
+<div class="banner_img">
+  <div class="banner">
+    <h1>Don't buy things you hardly use. Borrow it or lend it to someone</h1>
+  </div>
 </div>
+<div id="about">
+  <h1>About Lend</h1><br>
+  <img src="https://www.shareicon.net/download/2016/09/13/828361_business_512x512.png">
+  <h3>Lend is a service that allows users to lend out and borrow items from other users. There are many times when a person wants to use some items,
+  but they don't want to fully purchase it. They'll only need it once and then never again. Or maybe someone forgot something at home and needs
+  it for that day. Why buy a new item completely when someone can lend it out to you instead?</h3>
+</div>
+
 
 {% endblock %}
