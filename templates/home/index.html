@@ -1,8 +1,14 @@
 {% extends "../base.html" %}
 
 {% block body_block %}
+{% if user.is_authenticated %}
 <div class="jumbotron">
-  <h1>Please work</h1>
+  <h1>Feed</h1>
 </div>
+{% else %}
+<div class="jumbotron">
+    <h1>You need to be logged in to view a home feed!</h1>
+</div>
+{% endif %}
 
 {% endblock %}
