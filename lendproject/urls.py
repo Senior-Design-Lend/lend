@@ -24,5 +24,6 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('login/', include('login.urls')),
     path('logout/', views.user_logout, name='logout'),
-    path('home/', include('home.urls',namespace='home'))
+    path('home/', include('home.urls',namespace='home')),
+    path('items/', include('items.urls', namespace='items'))
 ]
