@@ -45,3 +45,6 @@ venv/
 # Stuff from Cloud9
 .c9
 .git
+
+# VS Code stuff
+.vscode/
