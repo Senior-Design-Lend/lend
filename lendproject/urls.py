@@ -25,4 +25,5 @@ urlpatterns = [
     path('login/', include('login.urls')),
     path('logout/', views.user_logout, name='logout'),
     path('home/', include('home.urls',namespace='home'))
+    path('profile/', include('userprofile.urls', namespace = 'profile'))
 ]
