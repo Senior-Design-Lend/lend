@@ -42,5 +42,9 @@ Thumbs.db
 # Virutal environment
 venv/
 
-# VS Code
+# Stuff from Cloud9
+.c9
+.git
+
+# VS Code stuff
 .vscode/

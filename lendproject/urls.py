@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from login import views
+from home.views import homeView
 
 
 urlpatterns = [
@@ -24,4 +25,5 @@ urlpatterns = [
     path('login/', include('login.urls')),
     path('logout/', views.user_logout, name='logout'),
     path('', include('chat.urls'), name='chat'),
+    path('home/', include('home.urls',namespace='home'))
 ]

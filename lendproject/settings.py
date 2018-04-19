@@ -27,7 +27,10 @@ SECRET_KEY = 'u15*ymu-9r=cq&y%&@wb)g-+dd-#xl$i0$q%b0qxdr+cl_e=s*'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+        "lend-farhasan.c9users.io",
+        "127.0.0.1"
+    ]
 
 
 # Application definition
@@ -88,7 +91,7 @@ DATABASES = {
         'USER': '',
         'PASSWORD': '',
         'HOST': 'localhost',
-        'PORT': '5432',
+        'PORT': '',
     }
 }
 
@@ -137,8 +140,13 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
-STATICFILES_DIR = [STATIC_DIR]
+
+STATICFILES_DIR = [
+        STATIC_DIR
+    ]
+
 
 MEDIA_ROOT = MEDIA_DIR
 MEDIA_URL = '/media/'

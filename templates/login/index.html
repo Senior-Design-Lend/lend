@@ -1,9 +1,114 @@
-{% extends "login/base.html" %}
+<style>
+  .banner_img
+  {
+    overflow: hidden;
+    box-shadow: 0px 4px 10px 0px rgba(0,0,0,0.75);
+  }
+  
+  .banner
+  {
+    width: 100%;
+    height: 30em;
+    background: url("https://i.imgur.com/9she0C8.jpg");
+    background-size: cover;
+    text-align: center;
+  }
+  
+  .banner > h1
+  {
+    font-size: 3em;
+    font-weight: bold;
+    line-height: 10em;
+    color: white;
+    text-shadow: 0px 2px 2px rgba(150, 150, 150, 1);
+    user-select: none;
+  }
+  
+  #about
+  {
+    padding-left: 6em;
+    padding-right: 6em;
+    padding-top: 4em;
+    text-align: center;
+  }
+  
+  #about > h1
+  {
+    font-size: 4.5em;
+    font-weight: bold;
+    user-select: none;
+  }
+  
+  #about > h3
+  {
+    padding-bottom: 3em;
+    line-height: 1.7;
+  }
+  
+  #about > img
+  {
+    height: auto;
+    width: auto;
+    max-width: 12em;
+    max-height: 12em;
+  }
+  
+  #faq
+  {
+    padding-left: 6em;
+    padding-right: 6em;
+    padding-top: 4em;
+    text-align: center;
+  }
+  
+  #faq > h1
+  {
+    font-size: 4.5em;
+    font-weight: bold;
+    user-select: none;
+  }
+  
+  #faq > img
+  {
+    height: auto;
+    width: auto;
+    max-width: 12em;
+    max-height: 12em;
+  }
+  
+  #faq > p
+  {
+    font-size: 1.25em;
+  }
+  
+</style>
+
+{% extends "../base.html" %}
 
 {% block body_block %}
-<div class="jumbotron">
-  <h1>Django Level Five</h1>
-  <h1>{{ user.userprofileinfo.city }}</h1>
+<div class="banner_img">
+  <div class="banner">
+    <h1>Don't buy things you hardly use. Borrow it or lend it to someone</h1>
+  </div>
 </div>
+<div id="about">
+  <h1>About Lend</h1><br>
+  <img src="https://www.shareicon.net/download/2016/09/13/828361_business_512x512.png"><br>
+  <h3>Lend is a service that allows users to lend out and borrow items from other users. There are many times when a person wants to use some items,
+  but they don't want to fully purchase it. They'll only need it once and then never again. Or maybe someone forgot something at home and needs
+  it for that day. Why buy a new item completely when someone can lend it out to you instead?</h3>
+</div>
+<div id="faq">
+  <h1>Frequently Asked Questions</h1><br>
+  <img src="http://spis.ac.rw/wp-content/uploads/2013/02/sign-question-icon.png"><br><br><br>
+  <h2>Is Lend free to use?</h2><p>Lend is completely free to use!</p><br>
+  <h2>Is Lend for mobile?</h2><p>Currently you can only use Lend through the website but there are plans for mobile development in the future.</p><br>
+  <h2>How do you find items to rent or borrow?</h2><p>Using our map view, you can search for items in a given area</p><br>
+  <h2>What if the item I want isn't available?</h2><p>If it is not available then you can request it! Your request will be listed and you will be notified
+  if someone fulfills it.</p><br>
+  <h2>How do I contact a Lender?</h2><p>You can use our built-in chat service to contact a lender.</p><br>
+  <h2>How do I know if a user is legitimate?</h2><p>User ratings and reviews will help you determine users you want to make transactions with.</p><br>
+</div>
+
 
 {% endblock %}
