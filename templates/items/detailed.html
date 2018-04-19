@@ -1,0 +1,23 @@
+{% extends "../base.html" %}
+
+{% load staticfiles %}
+
+{% block body_block %}
+<h1> Detail of Items </h1>
+<div class="jumbotron">
+  <p>name: {{item_detail.name}}</p>
+  <p>price: {{item_detail.price}}</p>
+  <p>owner: {{item_detail.owner}}</p>
+  <p>condition: {{item_detail.condition}}</p>
+  <p>category: {{item_detail.category}}</p>
+
+</div>
+
+<div class="container">
+  <p><a class="btn btn-warning" href="{% url 'items:update' pk=item_detail.pk %}">UPDATE</a></p>
+  <p><a class="btn btn-danger" href="{% url 'items:delete' pk=item_detail.pk %}">DELETE</a></p>
+  <p><a class="btn btn-warning" href="{% url 'items:list' %}">BACK</a></p>
+
+</div>
+
+{% endblock %}

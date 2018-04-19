@@ -1,6 +1,5 @@
 from django.shortcuts import render
 from login.forms import UserForm, UserProfileInfoForm
-
 from django.http import HttpResponseRedirect, HttpResponse
 from django.urls import reverse
 from login.models import User, UserProfileInfo

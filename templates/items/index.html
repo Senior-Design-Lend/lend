@@ -1,0 +1,15 @@
+{% extends "../base.html" %}
+
+{% load staticfiles %}
+
+{% block body_block %}
+<h1> List of Items </h1>
+  <ol>
+    {% for item in items %}
+    <h2><li><a href="{{item.id}}">{{item.name}}</a></li>
+    {% endfor %}
+  </ol>
+
+<a class="btn btn-warning" href="{% url 'items:create' %}">addItem</a>
+
+{% endblock %}
