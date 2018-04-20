@@ -1,13 +1,33 @@
+<style>
+  .list-inline-item
+  {
+    padding-right: 5em;
+  }
+  
+</style>
+
 {% extends "../base.html" %}
 
 {% block body_block %}
 {% if user.is_authenticated %}
-<div class="jumbotron">
-  <h1>Feed</h1>
+<div class="container">
+  <div class="greeting">
+    <h1>Hi {{ user }}!</h1>
+  </div><br>
+  <div class="allItemsList">  
+    <ul class="list-inline">
+      {% for item in items %}
+      <li class="list-inline-item"><h3>{{ item }}<h3></li>
+      {% endfor %}
+    </ul>
+  </div>  
 </div>
+
 {% else %}
-<div class="jumbotron">
+<div class="container">
+  <div>
     <h1>You need to be logged in to view a home feed!</h1>
+  </div>
 </div>
 {% endif %}
 
