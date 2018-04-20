@@ -47,7 +47,9 @@ INSTALLED_APPS = [
     'widget_tweaks',
     'rest_framework',
     'chat',
+    'userprofile',
     'home',
+    'items',
 ]
 
 MIDDLEWARE = [

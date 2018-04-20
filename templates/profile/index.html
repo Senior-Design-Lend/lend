@@ -1,0 +1,23 @@
+{% extends "../base.html" %}
+{% block body_block %}
+
+{% if user.is_authenticated %}
+<div class='jumbotron'>
+  <h2>Items for Lend:</h2>
+  <form action="../items/itemList">
+    <input type="submit" value="Click here!" />
+  </form>
+  <h2>Recent Transactions:</h2>
+  <form action="../items/addItem">
+    <input type="submit" value="Post a new Item!" />
+  </form>
+</div>
+{% else %}
+<div class='jumbotron'>
+  <h1>You need to be logged in</h1>
+</div>
+{% endif %}
+{% endblock %}
+
+
+
