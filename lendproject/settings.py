@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_extensions',
     'login',
+    'userprofile',
     'home',
     'items',
 ]
@@ -86,9 +87,9 @@ WSGI_APPLICATION = 'lendproject.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'lend',
-        'USER': 'ubuntu',
-        'PASSWORD': 'DBpassword',
+        'NAME': 'sample_db',
+        'USER': '',
+        'PASSWORD': '',
         'HOST': 'localhost',
         'PORT': '',
     }

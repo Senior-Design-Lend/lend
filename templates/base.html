@@ -127,6 +127,7 @@
         <div class="navbar-nav">
           {% if user.is_authenticated %}
           <a class="nav-item nav-link active" href="{% url 'home:home' %}">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-item nav-link active" href="{% url 'profile:profile' %}">{{ user }} <span class="sr-only">(current)</span></a>
           <a class="nav-item nav-link active" href="{% url 'logout' %}">Logout <span class="sr-only">(current)</span></a>
           {% else %}
           <a class="nav-item nav-link active" href="#" data-toggle="modal" data-target="#login-modal">Login <span class="sr-only">(current)</span></a>
