@@ -1,6 +1,10 @@
-<link rel="stylesheet" href="static/css/home/feed.css">
-
 {% extends "../base.html" %}
+
+{% load static %}
+
+{% block styles %}
+  <link rel="stylesheet" href="{% static 'css/home/feed.css' %}">
+{% endblock %}
 
 {% block body_block %}
 {% if user.is_authenticated %}
@@ -8,22 +12,59 @@
   <div class="greeting">
     <h1>Hi {{ user }}!</h1>
   </div><br>
-  {% comment %}
-  <div class="allItemsList">  
-    <ul class="list-inline">
-      {% for item in items %}
-      <li class="list-inline-item"><h3>{{ item }}<h3></li>
-      {% endfor %}
-    </ul>
-  </div>  
-  {% endcomment %}
   
   {% if userItems|length < 1%}
   <div class="addItemPrompt">  
     <h3>It seems like you haven't posted an items up. Why don't add one?</h3> <a class="btn btn-success" href="{% url 'items:create' %}">Add Item</a>
   </div>
-  {% endif %}
+  {% else %}
+  <div class="allItemsList">  
+    <div class="row">
+      <div class="col-sm">
+        <div class="thumbnail">
+          <img src="{{ items.1.picture.url }}">
+          <div class="caption">
+            <h2>{{ items.1 }}</h2>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm">
+        <div class="thumbnail">
+          <img src="{{ items.2.picture.url }}">
+          <div class="caption">
+            <h2>{{ items.2 }}</h2>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm">
+        <div class="thumbnail">
+          <img src="{{ items.3.picture.url }}">
+          <div class="caption">
+            <h2>{{ items.3 }}</h2>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm">
+        <div class="thumbnail">
+          <img src="{{ items.4.picture.url }}">
+          <div class="caption">
+            <h2>{{ items.4 }}</h2>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm">
+        <div class="thumbnail">
+          <img src="{{ items.5.picture.url }}">
+          <div class="caption">
+            <h2>{{ items.5 }}</h2>
+          </div>
+        </div>
+      </div>
+    </div><br>
+    <a class="btn btn-success" href="{% url 'items:create' %}">Add New Item</a>
+  </div>  
 </div>
+{% endif %}
 
 {% else %}
 <div class="container">

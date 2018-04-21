@@ -1,6 +1,10 @@
-<link rel="stylesheet" href="static/css/welcome.css">
-
 {% extends "../base.html" %}
+
+{% load static %}
+
+{% block styles %}
+  <link rel="stylesheet" href="{% static 'css/welcome.css' %}">
+{% endblock %}
 
 {% block body_block %}
 <div class="banner_img">

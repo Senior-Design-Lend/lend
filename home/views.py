@@ -12,6 +12,7 @@ class homeView(TemplateView):
         context = super().get_context_data(**kwargs)
         context['items'] = self.getItems()
         context['userItems'] = self.getUserItems()
+        context['catSize'] = 5
         return context
         
     def getItems(self):
