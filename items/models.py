@@ -58,9 +58,9 @@ class Item(models.Model):
     category = models.CharField(choices=CATEGORY_CHOICES, max_length=30)
     available = models.BooleanField(default=True)
     picture = models.ImageField(upload_to='item_image',blank=True)
-
+    zipCode = models.CharField(max_length=5, default='00000')
     def get_absolute_url(self):
         return reverse("items:detail", kwargs={'pk':self.pk})
-        
+
     def __str__(self):
         return self.name

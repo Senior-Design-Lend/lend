@@ -21,7 +21,7 @@ class detailItemView(DetailView):
 
 class createItemView(CreateView):
     model = models.Item
-    fields = ('name', 'price','condition', 'category', 'available', 'picture')
+    fields = ('name', 'price','condition', 'category', 'available','zipCode', 'picture')
     def form_valid(self, form):
         profile = form.save(commit=False)
         form.instance.owner = self.request.user
@@ -30,7 +30,7 @@ class createItemView(CreateView):
         return super().form_valid(form)
 
 class updateItemView(UpdateView):
-    fields = ('name', 'price', 'condition', 'category', 'available', 'picture')
+    fields = ('name', 'price', 'condition', 'category', 'available', 'zipCode','picture')
     model = models.Item
 
 class deleteItemView(DeleteView):
