@@ -8,6 +8,7 @@
   <div class="greeting">
     <h1>Hi {{ user }}!</h1>
   </div><br>
+  {% comment %}
   <div class="allItemsList">  
     <ul class="list-inline">
       {% for item in items %}
@@ -15,6 +16,13 @@
       {% endfor %}
     </ul>
   </div>  
+  {% endcomment %}
+  
+  {% if userItems|length < 1%}
+  <div class="addItemPrompt">  
+    <h3>It seems like you haven't posted an items up. Why don't add one?</h3> <a class="btn btn-success" href="{% url 'items:create' %}">Add Item</a>
+  </div>
+  {% endif %}
 </div>
 
 {% else %}

@@ -11,9 +11,14 @@ class homeView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['items'] = self.getItems()
+        context['userItems'] = self.getUserItems()
         return context
         
     def getItems(self):
         allItems = Item.objects.all()
         return allItems
+        
+    def getUserItems(self):
+        userItems = Item.objects.filter(owner=self.request.user)
+        return userItems
         
