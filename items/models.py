@@ -57,7 +57,7 @@ class Item(models.Model):
     )
     category = models.CharField(choices=CATEGORY_CHOICES, max_length=30)
     available = models.BooleanField(default=True)
-    picture = models.ImageField(blank=True)
+    picture = models.ImageField(upload_to='item_image',blank=True)
 
     def get_absolute_url(self):
         return reverse("items:detail", kwargs={'pk':self.pk})
