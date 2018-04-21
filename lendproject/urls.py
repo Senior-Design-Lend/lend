@@ -17,6 +17,9 @@ from django.contrib import admin
 from django.urls import path, include
 from login import views
 from home.views import homeView
+from django.conf.urls.static import static
+from django.conf import settings
+from django.contrib.auth.decorators import login_required, permission_required
 
 
 urlpatterns = [
@@ -26,4 +29,4 @@ urlpatterns = [
     path('logout/', views.user_logout, name='logout'),
     path('home/', include('home.urls',namespace='home')),
     path('items/', include('items.urls', namespace='items'))
-]
+] +  static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
