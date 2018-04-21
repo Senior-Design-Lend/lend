@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_extensions',
+    'whoosh',
+    'haystack',
     'login',
     'userprofile',
     'home',
@@ -87,9 +89,9 @@ WSGI_APPLICATION = 'lendproject.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'lend',
-        'USER': 'ubuntu',
-        'PASSWORD': 'DBpassword',
+        'NAME': 'sample_db',
+        'USER': '',
+        'PASSWORD': '',
         'HOST': 'localhost',
         'PORT': '',
     }
@@ -149,3 +151,11 @@ MEDIA_ROOT = MEDIA_DIR
 MEDIA_URL = '/media/'
 
 LOGIN_URL = '/basic_app/user_login'
+
+WHOOSH_INDEX = os.path.join(BASE_DIR, 'whoosh')
+HAYSTACK_CONNECTIONS = {
+    'default' : {
+        'ENGINE' : 'haystack.backends.whoosh_backend.WhooshEngine',
+        'PATH' : WHOOSH_INDEX,
+    },
+}

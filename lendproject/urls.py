@@ -32,5 +32,6 @@ urlpatterns = [
     path('logout/', views.user_logout, name='logout'),
     path('home/', include('home.urls',namespace='home')),
     path('profile/', include('userprofile.urls'), name='profile'),
-    path('items/', include('items.urls', namespace='items'))
+    path('items/', include('items.urls', namespace='items')),
+    path('search/', include('haystack.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
