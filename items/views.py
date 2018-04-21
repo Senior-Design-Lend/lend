@@ -26,8 +26,8 @@ class createItemView(CreateView):
         profile = form.save(commit=False)
         form.instance.owner = self.request.user
         profile.picture = form.cleaned_data['picture']
-        profile.save(commit=True)
-        # return super().form_valid(form)
+        profile.save()
+        return super().form_valid(form)
 
 class updateItemView(UpdateView):
     fields = ('name', 'price', 'condition', 'category', 'available', 'picture')
