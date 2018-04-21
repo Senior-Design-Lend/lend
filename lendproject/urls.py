@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 from login import views
 from home.views import homeView
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 
 urlpatterns = [
@@ -28,3 +29,4 @@ urlpatterns = [
     path('profile/', include('userprofile.urls'), name='profile'),
     path('items/', include('items.urls', namespace='items'))
 ]
+
