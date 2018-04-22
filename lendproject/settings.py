@@ -159,3 +159,7 @@ HAYSTACK_CONNECTIONS = {
         'PATH' : WHOOSH_INDEX,
     },
 }
+# Default: manually update index
+# HAYSTACK_SIGNAL_PROCESSOR = 'haystack.signals.BaseSignalProcessor'
+# No need to update index
+HAYSTACK_SIGNAL_PROCESSOR = 'haystack.signals.RealtimeSignalProcessor'
