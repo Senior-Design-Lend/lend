@@ -34,4 +34,5 @@ urlpatterns = [
     path('profile/', include('userprofile.urls'), name='profile'),
     path('items/', include('items.urls', namespace='items')),
     path('search/', include('haystack.urls')),
+    path('transaction/', include('transaction.urls'), name='transaction'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

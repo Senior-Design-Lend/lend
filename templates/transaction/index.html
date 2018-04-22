@@ -1,0 +1,13 @@
+{% extends "../base.html" %}
+
+{% load staticfiles %}
+
+{% block body_block %}
+<h1> List of Transactions </h1>
+  <ol>
+    {% for transaction in transactions %}
+    <h2><li><a href="#">{{transaction.item.name}}</a></li>
+    {% endfor %}
+  </ol>
+
+{% endblock %}
