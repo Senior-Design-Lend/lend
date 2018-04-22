@@ -13,6 +13,8 @@ class listItemView(ListView):
     context_object_name = 'items'
     template_name = 'items/index.html'
     model = models.Item
+    def get_queryset(self):
+        return models.Item.objects.filter(owner=self.request.user)
 
 class detailItemView(DetailView):
     model = models.Item
