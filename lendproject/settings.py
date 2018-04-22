@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'userprofile',
     'home',
     'items',
+    'transaction',
 ]
 
 MIDDLEWARE = [
