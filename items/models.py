@@ -9,7 +9,7 @@ class Item(models.Model):
     CONDITION_CHOICES = (
         ('Bad', 'Bad'),
         ('Good', 'Good'),
-        ('Excelllent', 'Excellent')
+        ('Excellent', 'Excellent')
     )
     condition = models.CharField(choices=CONDITION_CHOICES,  max_length=12)
     CATEGORY_CHOICES = (
@@ -60,6 +60,7 @@ class Item(models.Model):
     picture = models.ImageField(upload_to='item_image',blank=True)
     pub_date = models.DateTimeField(auto_now_add=True)
     update_date = models.DateTimeField(auto_now=True)
+    
     def get_absolute_url(self):
         return reverse("items:detail", kwargs={'pk':self.pk})
         
