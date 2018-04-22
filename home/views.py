@@ -11,7 +11,9 @@ class homeView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['items'] = self.getItems()
-        context['userItems'] = self.getUserItems()
+        if self.request.user.is_authenticated:
+            context['userItems'] = self.getUserItems()
+        context['catSize'] = 5
         return context
         
     def getItems(self):
