@@ -9,12 +9,6 @@ class UserForm(forms.ModelForm):
     class Meta():
         model = User
         fields = ('first_name', 'last_name','username', 'email', 'password')
-    def clean(self):
-        password = self.cleaned_data.get('password')
-        vpassword = self.cleaned_data.get('vpassword')
-
-        if password != vpassword:
-            raise forms.ValidationError('passwords must match!')
 
 class UserProfileInfoForm(forms.ModelForm):
     class Meta():
