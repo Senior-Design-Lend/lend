@@ -23,44 +23,54 @@
     <div class="row">
       {% if userItems|length > 5%}
       <div class="col-sm">
-        <div class="thumbnail">
-          <img src="{{ items.1.picture.url }}">
-          <div class="caption">
-            <h3>{{ items.1 }}</h3>
+        <a href="{% url 'items:detail' pk=items.1.pk %}">
+          <div class="thumbnail">
+            <img src="{{ items.1.picture.url }}">
+            <div class="caption">
+              <h3>{{ items.1 }}</h3>
+            </div>
           </div>
-        </div>
+        </a>
       </div>
       <div class="col-sm">
-        <div class="thumbnail">
-          <img src="{{ items.2.picture.url }}">
-          <div class="caption">
-            <h3>{{ items.2 }}</h3>
+        <a href="{% url 'items:detail' pk=items.2.pk %}">
+          <div class="thumbnail">
+            <img src="{{ items.2.picture.url }}">
+            <div class="caption">
+              <h3>{{ items.2 }}</h3>
+            </div>
           </div>
-        </div>
+        </a>
       </div>
       <div class="col-sm">
-        <div class="thumbnail">
-          <img src="{{ items.3.picture.url }}">
-          <div class="caption">
-            <h3>{{ items.3 }}</h3>
+        <a href="{% url 'items:detail' pk=items.2.pk %}">
+          <div class="thumbnail">
+            <img src="{{ items.3.picture.url }}">
+            <div class="caption">
+              <h3>{{ items.3 }}</h3>
+            </div>
           </div>
-        </div>
+        </a>
       </div>
       <div class="col-sm">
-        <div class="thumbnail">
-          <img src="{{ items.4.picture.url }}">
-          <div class="caption">
-            <h3>{{ items.4 }}</h3>
+        <a href="{% url 'items:detail' pk=items.2.pk %}">
+          <div class="thumbnail">
+            <img src="{{ items.4.picture.url }}">
+            <div class="caption">
+              <h3>{{ items.4 }}</h3>
+            </div>
           </div>
-        </div>
+        </a>
       </div>
       <div class="col-sm">
-        <div class="thumbnail">
-          <img src="{{ items.5.picture.url }}">
-          <div class="caption">
-            <h3>{{ items.5 }}</h3>
+        <a href="{% url 'items:detail' pk=items.2.pk %}">
+          <div class="thumbnail">
+            <img src="{{ items.5.picture.url }}">
+            <div class="caption">
+              <h3>{{ items.5 }}</h3>
+            </div>
           </div>
-        </div>
+        </a>
       </div>
       {% else %}
       {% for item in items %}

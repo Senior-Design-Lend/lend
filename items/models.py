@@ -58,15 +58,11 @@ class Item(models.Model):
     )
     category = models.CharField(choices=CATEGORY_CHOICES, max_length=30)
     available = models.BooleanField(default=True)
-<<<<<<< HEAD
     picture = models.ImageField(upload_to='item_image')
     pub_date = models.DateTimeField(auto_now_add=True)
     update_date = models.DateTimeField(auto_now=True)
-    zipCode = models.CharField(max_length=5)
-=======
-    picture = models.ImageField(upload_to='item_image',blank=True)
     zipCode = models.CharField(max_length=5, default='00000')
->>>>>>> 799e2e1ba162cd563fff2c5fe103e9d06bee4957
+
     def get_absolute_url(self):
         return reverse("items:detail", kwargs={'pk':self.pk})
 
