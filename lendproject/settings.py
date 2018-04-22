@@ -152,6 +152,7 @@ MEDIA_URL = '/media/'
 
 LOGIN_URL = '/basic_app/user_login'
 
+<<<<<<< HEAD
 WHOOSH_INDEX = os.path.join(BASE_DIR, 'whoosh')
 HAYSTACK_CONNECTIONS = {
     'default' : {
@@ -163,3 +164,6 @@ HAYSTACK_CONNECTIONS = {
 # HAYSTACK_SIGNAL_PROCESSOR = 'haystack.signals.BaseSignalProcessor'
 # No need to update index
 HAYSTACK_SIGNAL_PROCESSOR = 'haystack.signals.RealtimeSignalProcessor'
+=======
+GOOGLE_MAPS_API_KEY = 'AIzaSyBDaQmtsD15X77pMjIZPTjKBa_to5_PbT0'
+>>>>>>> 799e2e1ba162cd563fff2c5fe103e9d06bee4957

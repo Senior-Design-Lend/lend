@@ -51,14 +51,22 @@ class UserProfileInfo(models.Model):
      ('FL', 'FL'), ('GA', 'GA'), ('HI', 'HI'), ('ID', 'ID'), ('IL', 'IL'), ('IN', 'IN'), ('IA', 'IA'), ('KS', 'KS'), ('KY', 'KY'), ('LA', 'LA'),
      ('ME', 'ME'), ('MD', 'MD'), ('MA', 'MA'), ('MI', 'MI'), ('MN', 'MN'), ('MS', 'MS'), ('MO', 'MO'), ('MT', 'MT'), ('NE', 'NE'), ('NV', 'NV'),
       ('NH', 'NH'), ('NJ', 'NJ'), ('NM', 'NM'), ('NY', 'NY'), ('NC', 'NC'), ('ND', 'ND'), ('OH', 'OH'), ('OK', 'OK'), ('OR', 'OR'), ('PA', 'PA'),
+<<<<<<< HEAD
       ('RI', 'RI'), ('SC', 'SC'), ('SD', 'SD'), ('TN', 'TN'), ('TX', 'TX'), ('UT', 'UT'), ('VT', 'VT'), ('VA', 'VA'), ('WA', 'WA'), ('WV', 'WV')
     )
 
+=======
+      ('RI', 'RI'), ('SC', 'SC'), ('SD', 'SD'), ('TN', 'TN'), ('TX', 'TX'), ('UT', 'UT'), ('VT', 'VT'), ('VA', 'VA'), ('WA', 'WA'), ('WV', 'WV'),
+      ('WI', 'WI'), ('WY', 'WY'))
+>>>>>>> 799e2e1ba162cd563fff2c5fe103e9d06bee4957
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     interest1 = models.CharField(choices=CATEGORY_CHOICES, max_length=30, default='None')
     interest2 = models.CharField(choices=CATEGORY_CHOICES, max_length=30, default='None')
     interest3 = models.CharField(choices=CATEGORY_CHOICES, max_length=30, default='None')
     ratings = models.DecimalField(max_digits=3, decimal_places=2, default='0')
+    interest1 = models.CharField(choices=CATEGORY_CHOICES, max_length=30, default='None')
+    interest2 = models.CharField(choices=CATEGORY_CHOICES, max_length=30, default='None')
+    interest3 = models.CharField(choices=CATEGORY_CHOICES, max_length=30, default='None')
     city = models.CharField(max_length=50, blank=True)
     state = models.CharField(choices=STATES, max_length=30, blank=True)
     profile_pic = models.ImageField(upload_to='profile_pic', blank=True)
