@@ -17,6 +17,12 @@ from django.contrib import admin
 from django.urls import path, include
 from login import views
 from home.views import homeView
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+
+from django.conf.urls.static import static
+from django.conf import settings
+from django.contrib.auth.decorators import login_required, permission_required
+
 
 
 urlpatterns = [
@@ -28,4 +34,5 @@ urlpatterns = [
     path('home/', include('home.urls',namespace='home')),
     path('profile/', include('userprofile.urls'), name='profile'),
     path('items/', include('items.urls', namespace='items')),
-]
+    path('search/', include('haystack.urls')),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

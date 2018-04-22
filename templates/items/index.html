@@ -10,6 +10,8 @@
     {% endfor %}
   </ol>
 
-<a class="btn btn-warning" href="{% url 'items:create' %}">addItem</a>
+{% if user.is_authenticated %}
+<a class="btn btn-success" href="{% url 'items:create' %}">Add Item</a>
+{% endif %}
 
 {% endblock %}

@@ -1,0 +1,4 @@
+{{object.name}}
+{{object.price}}
+{{object.condition}}
+{{object.category}}
