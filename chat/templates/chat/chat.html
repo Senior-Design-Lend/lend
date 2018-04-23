@@ -1,14 +1,5 @@
-{% extends 'chat/index.html' %}
-{% block body %}
-<nav class="blue lighten-3">
-    <div class="nav-wrapper container">
-      <a href="#" class="brand-logo">Chat</a>
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-          <li><a href="">{{ request.user.username }}</a></li>
-          <li><a href="{% url 'logout' %}"><i class="material-icons">power_settings_new</i></a></li>
-      </ul>
-    </div>
-</nav>
+{% extends 'base.html' %}
+{% block body_block %}
     <div class="section" style="height: 80vh">
     <div class="row">
         <div class="col s3">
