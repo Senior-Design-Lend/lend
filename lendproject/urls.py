@@ -30,8 +30,10 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('login/', include('login.urls')),
     path('logout/', views.user_logout, name='logout'),
+    path('', include('chat.urls'), name='chat'),
     path('home/', include('home.urls',namespace='home')),
     path('profile/', include('userprofile.urls'), name='profile'),
     path('items/', include('items.urls', namespace='items')),
     path('search/', include('haystack.urls')),
+    path('transaction/', include('transaction.urls'), name='transaction'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

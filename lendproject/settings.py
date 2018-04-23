@@ -46,9 +46,13 @@ INSTALLED_APPS = [
     'whoosh',
     'haystack',
     'login',
+    'widget_tweaks',
+    'rest_framework',
+    'chat',
     'userprofile',
     'home',
     'items',
+    'transaction',
 ]
 
 MIDDLEWARE = [
@@ -146,6 +150,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
         STATIC_DIR
     ]
+
 
 MEDIA_ROOT = MEDIA_DIR
 MEDIA_URL = '/media/'
