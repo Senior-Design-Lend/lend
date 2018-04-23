@@ -262,6 +262,8 @@ class WriteView(ComposeMixin, FormView):
         kwargs['channel'] = channel
         return kwargs
 
+    def get_success_url(self):
+        return 'postman:inbox'
 
 class ReplyView(ComposeMixin, FormView):
     """
