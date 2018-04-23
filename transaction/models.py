@@ -21,4 +21,5 @@ class Request(models.Model):
     end = models.DateField(default=date.today)
 
     def get_absolute_url(self):
-        return reverse("items:detail", kwargs={'pk':Request.objects.get(id=self.pk).item.pk})
+        return reverse("postman:write", kwargs={'recipients':Request.objects.get(id=self.pk).requestee})
+        # return reverse("postman:write")
