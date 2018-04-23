@@ -1,3 +1,15 @@
+<style>
+      #map {
+        height: 400px;
+        width: 100%;
+       }
+       
+       #mainSearch
+       {
+           margin-top: 1em;
+       }
+    </style>
+
 {% extends '../base.html' %}
 
 {% block body_block %}
@@ -23,6 +35,71 @@
     {% else %}
         {# Show some example queries to run, maybe query syntax, something else? #}
     {% endif %}
+    
+    <div id="map"></div>
+    <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAMJtWB3fptWgxHnWz7DqTfRxPdxWTdGCM"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script type="text/javascript">
+        var map;
+        
+        function mapLocation(zip) {
+          initMap(zip);
+          axios.get('https://maps.googleapis.com/maps/api/geocode/json', {
+              params: {
+                  address: zip,
+                  key: 'AIzaSyAMJtWB3fptWgxHnWz7DqTfRxPdxWTdGCM'
+              }
+          }).then(function(response){
+              const coor = response['data']['results'][0]['geometry']['location'];
+              initMap(coor);
+          });
+            
+        }
+        
+        function addMarkers(zip) {
+          axios.get('https://maps.googleapis.com/maps/api/geocode/json', {
+              params: {
+                  address: zip,
+                  key: 'AIzaSyAMJtWB3fptWgxHnWz7DqTfRxPdxWTdGCM'
+              }
+          }).then(function(response){
+              const coor = response['data']['results'][0]['geometry']['location'];
+              addMarker(coor);
+          });
+            
+        }
+        
+        async function initMap(coors) {
+            map = new google.maps.Map(document.getElementById('map'), {
+              zoom: 11,
+              center: coors
+            });
+        }
+        
+        function addMarker(coors) {
+            const marker = new google.maps.Marker({
+                position: coors,
+                map: map
+            });
+        }
+
+        //convertZipToCoor("{{ page.object_list.0.object.zipCode }}");
+        //mapLocation("{{ page.object_list }})";
+        
+        let zips = [];
+        {% for result in page.object_list %}
+            zips.push("{{result.object.zipCode}}");
+        {% endfor %}
+        
+        mapLocation(zips[0]);
+        
+        for (let i = 0; i < zips.length; i++) {
+            addMarkers(zips[i]);
+        }
+        
+        console.log(zips);
+    </script>
+   
 </div>
 
 {% endblock %}

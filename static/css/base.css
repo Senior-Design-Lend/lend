@@ -39,6 +39,7 @@ body
     background-color: rgba(0,0,0,0);
     border-color: rgba(14, 135, 52, 0.4);
     border-width: .1em;
+    color: white;
 }
 
 #mainSearch:focus
