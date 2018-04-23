@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.urls import reverse
+
 # Create your models here.
 class Item(models.Model):
     name = models.CharField(max_length=128)
@@ -57,12 +58,13 @@ class Item(models.Model):
     )
     category = models.CharField(choices=CATEGORY_CHOICES, max_length=30)
     available = models.BooleanField(default=True)
-    picture = models.ImageField(upload_to='item_image',blank=True)
+    picture = models.ImageField(upload_to='item_image')
     pub_date = models.DateTimeField(auto_now_add=True)
     update_date = models.DateTimeField(auto_now=True)
-    
+    zipCode = models.CharField(max_length=5, default='00000')
+
     def get_absolute_url(self):
         return reverse("items:detail", kwargs={'pk':self.pk})
-        
+
     def __str__(self):
         return self.name
