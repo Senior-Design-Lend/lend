@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'widget_tweaks',
     'rest_framework',
     'chat',
+    'postman',
     'userprofile',
     'home',
     'items',
