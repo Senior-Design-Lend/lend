@@ -5,9 +5,10 @@
 {% block styles %}
   <link rel="stylesheet" href="{% static 'css/home/feed.css' %}">
 {% endblock %}
-
+<h1></h1>
 {% block body_block %}
 {% if user.is_authenticated %}
+<h1>HELLO {{ request.user.name }}</h1>
 <div class="container">
   <div class="greeting">
     <h1>Hi {{ user.first_name }}!</h1>
