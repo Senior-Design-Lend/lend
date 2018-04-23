@@ -48,3 +48,7 @@ venv/
 
 # VS Code stuff
 .vscode/
+
+# Ignore media stuff except banner_image
+media/item_image
+media/profile_pic
