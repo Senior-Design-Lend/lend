@@ -10,5 +10,9 @@ class ItemForm(forms.ModelForm):
 
     def clean(self):
         price = self.cleaned_data.get('price')
+        zipCode = self.cleaned_data.get('zipCode')
+
         if price < 0:
             raise forms.ValidationError('prices can\'t be negative!')
+        if len(zipCode) != 5:
+            raise forms.ValidationError('Your zipcode is invalid!')
