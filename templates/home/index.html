@@ -12,10 +12,9 @@
   <div class="greeting">
     <h1>Hi {{ user.first_name }}!</h1>
   </div><br>
-
   {% if userItems|length < 1%}
   <div class="addItemPrompt">
-    <h3>It seems like you haven't posted an items up. Why don't add one?</h3> <a class="btn btn-success" href="{% url 'items:create' %}">Add Item</a>
+    <h3>It seems like you haven't posted an items up. Why don't add one?</h3><br><a class="btn btn-success" href="{% url 'items:create' %}">Add Item</a>
   </div>
   {% else %}
   <h2>Here are some of your recently posted items</h2><br>
