@@ -166,3 +166,5 @@ HAYSTACK_CONNECTIONS = {
 # HAYSTACK_SIGNAL_PROCESSOR = 'haystack.signals.BaseSignalProcessor'
 # No need to update index
 HAYSTACK_SIGNAL_PROCESSOR = 'haystack.signals.RealtimeSignalProcessor'
+
+POSTMAN_AUTO_MODERATE_AS = True  # default is None
