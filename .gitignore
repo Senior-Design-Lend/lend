@@ -50,4 +50,5 @@ venv/
 .vscode/
 
 # Ignore media stuff except banner_image
-!media/banner_image
+media/item_image
+media/profile_pic
