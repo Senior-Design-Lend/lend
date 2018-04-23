@@ -13,7 +13,6 @@ class homeView(TemplateView):
         context['items'] = self.getItems()
         if self.request.user.is_authenticated:
             context['userItems'] = self.getUserItems()
-        context['catSize'] = 5
         return context
 
     def getItems(self):

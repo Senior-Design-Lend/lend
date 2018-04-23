@@ -17,8 +17,12 @@
 </div>
 
 <div class="container">
+  {% if user == item_detail.owner %}
   <p><a class="btn btn-warning" href="{% url 'items:update' pk=item_detail.pk %}">UPDATE</a></p>
   <p><a class="btn btn-danger" href="{% url 'items:delete' pk=item_detail.pk %}">DELETE</a></p>
+  {% else %}
+  <p><a class="btn btn-warning" href="{% url 'items:update' pk=item_detail.pk %}">REQUEST</a></p>
+  {% endif %}
   <p><a class="btn btn-warning" href="{% url 'items:list' %}">BACK</a></p>
 
 </div>
