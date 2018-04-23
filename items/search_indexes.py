@@ -5,9 +5,9 @@ from items.models import Item
 class ItemIndex(indexes.SearchIndex, indexes.Indexable):
     text = indexes.CharField(document=True, use_template=True)
     # Can also search by these fields...
-    price = indexes.CharField(model_attr='price')
     condition = indexes.CharField(model_attr='condition')
     category = indexes.CharField(model_attr='category')
+    zipcode = indexes.CharField(model_attr='zipCode')
 
     update_date = indexes.DateTimeField(model_attr='update_date')
     # NOT WORKING....
