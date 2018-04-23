@@ -17,8 +17,8 @@
   </ol>
 <h1> These are the items people are requesting! </h1>
   <ol>
-    {% for o in outgoing %}
-    <h2><li><a href="{% url 'transaction:requestDetail' pk=o.id %}">{{o.item.name}}</a></li>
+    {% for i in incoming %}
+    <h2><li><a href="{% url 'transaction:requestDetail' pk=i.id %}">{{i.item.name}}</a></li>
     {% endfor %}
   </ol>
 
