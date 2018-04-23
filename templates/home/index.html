@@ -21,7 +21,7 @@
   <div class="allItemsList">
     <div class="row">
       {% if userItems|length > 5%}
-      <div class="col-sm">
+      <div class="col">
         <a href="{% url 'items:detail' pk=items.1.pk %}">
           <div class="thumbnail">
             <img src="{{ items.1.picture.url }}">
@@ -31,7 +31,7 @@
           </div>
         </a>
       </div>
-      <div class="col-sm">
+      <div class="col">
         <a href="{% url 'items:detail' pk=items.2.pk %}">
           <div class="thumbnail">
             <img src="{{ items.2.picture.url }}">
@@ -41,7 +41,7 @@
           </div>
         </a>
       </div>
-      <div class="col-sm">
+      <div class="col">
         <a href="{% url 'items:detail' pk=items.2.pk %}">
           <div class="thumbnail">
             <img src="{{ items.3.picture.url }}">
@@ -51,7 +51,7 @@
           </div>
         </a>
       </div>
-      <div class="col-sm">
+      <div class="col">
         <a href="{% url 'items:detail' pk=items.2.pk %}">
           <div class="thumbnail">
             <img src="{{ items.4.picture.url }}">
@@ -61,7 +61,7 @@
           </div>
         </a>
       </div>
-      <div class="col-sm">
+      <div clas="col">
         <a href="{% url 'items:detail' pk=items.2.pk %}">
           <div class="thumbnail">
             <img src="{{ items.5.picture.url }}">
@@ -73,7 +73,7 @@
       </div>
       {% else %}
       {% for item in items %}
-         <div class="col-sm">
+        <div class="cl">
            <a href="{% url 'items:detail' pk=item.pk %}">
               <div class="thumbnail">
                 <img src="{{ item.picture.url }}">
@@ -82,7 +82,7 @@
                 </div>
               </div>
             </a>
-          </div>
+      </div>
       {% endfor %}
       {% endif %}
     </div><br>

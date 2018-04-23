@@ -1,3 +1,13 @@
+.cl
+{
+    margin-right: 2em;
+}
+
+.row
+{
+    padding-left: 1em;
+}
+
 .caption
 {
     padding-top: 1.5em;
@@ -10,7 +20,6 @@
     box-shadow: -2px 4px 25px -5px rgba(0,0,0,0.57);
     width: 15em;
     height: 15em;
-    margin-right: 0;
 }
 
 
