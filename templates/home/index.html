@@ -8,7 +8,6 @@
 <h1></h1>
 {% block body_block %}
 {% if user.is_authenticated %}
-<h1>HELLO {{ request.user.name }}</h1>
 <div class="container">
   <div class="greeting">
     <h1>Hi {{ user.first_name }}!</h1>
@@ -36,7 +35,7 @@
       {% endfor %}
       </div>
   </div><br>
-  
+
   <h2>Here are some items based on your interest in {{ userProfile.interest2 }}</h2><br>
   <div class="allItemsList">
       <div class="row">
@@ -54,7 +53,7 @@
       {% endfor %}
       </div>
   </div><br>
-  
+
   <h2>Here are some items based on your interest in {{ userProfile.interest3 }}</h2><br>
   <div class="allItemsList">
       <div class="row">
@@ -72,7 +71,7 @@
       {% endfor %}
       </div>
   </div><br>
-  
+
   </div>
 </div>
 
