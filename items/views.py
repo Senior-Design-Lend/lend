@@ -13,9 +13,6 @@ class listItemView(ListView):
     def get_queryset(self):
         return models.Item.objects.filter(owner=self.request.user)
 
-    def get_queryset(self):
-        return models.Item.objects.filter(owner=self.request.user)
-
 class detailItemView(DetailView):
     model = models.Item
     context_object_name = 'item_detail'
@@ -39,4 +36,3 @@ class deleteItemView(DeleteView):
     model = models.Item
     success_url = reverse_lazy("items:list")
     template_name = 'items/delete.html'
-
