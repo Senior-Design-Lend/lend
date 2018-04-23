@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'whoosh',
     'haystack',
     'login',
+    'postman',
     'userprofile',
     'home',
     'items',
@@ -148,6 +149,7 @@ STATICFILES_DIRS = [
         STATIC_DIR
     ]
 
+
 MEDIA_ROOT = MEDIA_DIR
 MEDIA_URL = '/media/'
 
@@ -164,3 +166,5 @@ HAYSTACK_CONNECTIONS = {
 # HAYSTACK_SIGNAL_PROCESSOR = 'haystack.signals.BaseSignalProcessor'
 # No need to update index
 HAYSTACK_SIGNAL_PROCESSOR = 'haystack.signals.RealtimeSignalProcessor'
+
+POSTMAN_AUTO_MODERATE_AS = True  # default is None

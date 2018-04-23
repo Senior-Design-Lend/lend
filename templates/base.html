@@ -12,6 +12,10 @@
     
     {% block test %}
     {% endblock %}
+
+    {% block extrahead %}
+    {% endblock %}
+
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #17c44e;">
@@ -30,6 +34,9 @@
         <div class="navbar-nav">
           {% if user.is_authenticated %}
           <a class="nav-item nav-link active" href="{% url 'home:home' %}">Home <span class="sr-only">(current)</span></a>
+          {% block nav_block %}
+          <a class="nav-item nav-link active" href="{% url 'postman:inbox' %}">Messages <span class="sr-only">(current)</span></a>
+          {% endblock %}
           <a class="nav-item nav-link active" href="{% url 'profile:profile' %}">{{ user }} <span class="sr-only">(current)</span></a>
           <a class="nav-item nav-link active" href="{% url 'logout' %}">Logout <span class="sr-only">(current)</span></a>
           {% else %}
@@ -63,6 +70,8 @@
     {% block body_block %}
     {% endblock %}
 
+    {% block content %}
+    {% endblock %}
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
