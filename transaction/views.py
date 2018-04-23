@@ -10,6 +10,28 @@ class listTransactionView(ListView):
     context_object_name = 'transactions'
     template_name = 'transaction/index.html'
     model = models.Transaction
+    def get_context_data(self, **kwargs):
+        context = super(ListView, self).get_context_data(**kwargs)
+        context['active'] = models.Transaction.objects.filter(borrower=self.request.user, active=True)
+        context['past'] = models.Transaction.objects.filter(borrower=self.request.user, active=False)
+        return context
+
+class detailRequestView(DetailView):
+    model = models.Request
+    context_object_name = 'request_detail'
+    template = 'transaction/request_detail.html'
+
+class createTransactionView(CreateView):
+    model = models.Transaction
+    form_class = forms.transactionForm
+    def form_valid(self, form):
+        transaction = form.save(commit=False)
+        form.instance.owner = models.Request.objects.get(id=self.kwargs.get('pk')).requestee
+        form.instance.borrower = self.request.user
+        form.instance.item = models.Request.objects.get(id=self.kwargs.get('pk')).item
+        form.instance.t_end = models.Request.objects.get(id=self.kwargs.get('pk')).end
+        transaction.save()
+        return super().form_valid(form)
 
 class listRequestView(ListView):
     context_object_name = 'requests'

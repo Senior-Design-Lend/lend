@@ -10,8 +10,11 @@ class Transaction(models.Model):
     owner = models.ForeignKey(User, on_delete=models.CASCADE, related_name='owner')
     borrower = models.ForeignKey(User, on_delete=models.CASCADE, related_name='borrower')
     item = models.ForeignKey(Item, on_delete=models.CASCADE)
-    t_start = models.DateTimeField(auto_now_add=True)
-    t_end = models.DateTimeField()
+    t_start = models.DateField(auto_now_add=True)
+    t_end = models.DateField()
+    active = models.BooleanField(default=True)
+    def get_absolute_url(self):
+        return reverse("postman:write", kwargs={'recipients':Request.objects.get(id=self.pk).requestee})
 
 class Request(models.Model):
     requestee = models.ForeignKey(User, on_delete=models.CASCADE, related_name='requestee')

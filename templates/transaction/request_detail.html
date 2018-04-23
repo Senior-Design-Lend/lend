@@ -12,5 +12,9 @@
   <p>Start Date: {{request_detail.start}}</p>
   <p>End Date: {{request_detail.end}}</p>
 </div>
+{% if request_detail.requestee == user %}
+<p><a class="btn btn-success" href="{% url 'transaction:transactionForm' pk=request_detail.pk%}">APPROVE</a></p>
+{% endif %}
+
 
 {% endblock %}

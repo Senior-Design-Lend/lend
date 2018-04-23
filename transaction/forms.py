@@ -12,3 +12,8 @@ class requestForm(forms.ModelForm):
         end = self.cleaned_data.get('end')
         if end < start:
             raise forms.ValidationError('end time must be before start time')
+
+class transactionForm(forms.ModelForm):
+    class Meta():
+        model = models.Transaction
+        fields = ('active',)

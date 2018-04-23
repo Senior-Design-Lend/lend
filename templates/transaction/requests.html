@@ -3,12 +3,6 @@
 {% load staticfiles %}
 
 {% block body_block %}
-<h1> These are your requests! </h1>
-  <ol>
-    {% for r in requests %}
-    <h2><li><a href="{% url 'transaction:requestDetail' pk=r.id %}">{{r.item.name}}</a></li>
-    {% endfor %}
-  </ol>
 <h1> These are the items you requested! </h1>
   <ol>
     {% for o in outgoing %}
