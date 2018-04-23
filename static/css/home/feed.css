@@ -1,11 +1,16 @@
-.cl
+.allItemsList
 {
-    margin-right: 2em;
+    width: 100em;
 }
 
 .row
 {
     padding-left: 1em;
+}
+
+.cl
+{
+    margin-right: 5em;
 }
 
 .caption
@@ -18,7 +23,7 @@
 .thumbnail
 {
     box-shadow: -2px 4px 25px -5px rgba(0,0,0,0.57);
-    width: 15em;
+    width: 12em;
     height: 15em;
 }
 
