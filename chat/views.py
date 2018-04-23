@@ -7,22 +7,6 @@ from rest_framework.parsers import JSONParser
 from chat.models import Message
 from chat.serializers import MessageSerializer, UserSerializer
 
-
-def index(request):
-    if request.user.is_authenticated:
-        return redirect('chats')
-    if request.method == 'GET':
-        return render(request, 'chat/index.html', {})
-    if request.method == "POST":
-        username, password = request.POST['username'], request.POST['password']
-        user = authenticate(username=username, password=password)
-        if user is not None:
-            login(request, user)
-        else:
-            return HttpResponse('{"error": "User does not exist"}')
-        return redirect('chats')
-
-
 @csrf_exempt
 def user_list(request, pk=None):
     """
