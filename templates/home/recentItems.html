@@ -1,0 +1,71 @@
+<h2>Here are some of your recently posted items</h2><br>
+  <div class="allItemsList">
+    <div class="row">
+      {% if userItems|length > 5%}
+      <div class="cl">
+        <a href="{% url 'items:detail' pk=userItems.0.pk %}">
+          <div class="thumbnail">
+            <img src="{{ userItems.0.picture.url }}">
+            <div class="caption">
+              <h3>{{ userItems.0 }}</h3>
+            </div>
+          </div>
+        </a>
+      </div>
+      <div class="cl">
+        <a href="{% url 'items:detail' pk=userItems.1.pk %}">
+          <div class="thumbnail">
+            <img src="{{ userItems.1.picture.url }}">
+            <div class="caption">
+              <h3>{{ userItems.1 }}</h3>
+            </div>
+          </div>
+        </a>
+      </div>
+      <div class="cl">
+        <a href="{% url 'items:detail' pk=userItems.2.pk %}">
+          <div class="thumbnail">
+            <img src="{{ userItems.2.picture.url }}">
+            <div class="caption">
+              <h3>{{ userItems.2 }}</h3>
+            </div>
+          </div>
+        </a>
+      </div>
+      <div class="cl">
+        <a href="{% url 'items:detail' pk=userItems.3.pk %}">
+          <div class="thumbnail">
+            <img src="{{ userItems.3.picture.url }}">
+            <div class="caption">
+              <h3>{{ userItems.3 }}</h3>
+            </div>
+          </div>
+        </a>
+      </div>
+      <div clas="cl">
+        <a href="{% url 'items:detail' pk=userItems.4.pk %}">
+          <div class="thumbnail">
+            <img src="{{ userItems.4.picture.url }}">
+            <div class="caption">
+              <h3>{{ userItems.4 }}</h3>
+            </div>
+          </div>
+        </a>
+      </div>
+      {% else %}
+      {% for item in userItems %}
+        <div class="cl">
+           <a href="{% url 'items:detail' pk=item.pk %}">
+              <div class="thumbnail">
+                <img src="{{ item.picture.url }}">
+                <div class="caption">
+                  <h3>{{ item }}</h3>
+                </div>
+              </div>
+            </a>
+      </div>
+      {% endfor %}
+      {% endif %}
+    </div><br>
+    <a class="btn btn-success" href="{% url 'items:create' %}">Add New Item</a>
+  </div><br>

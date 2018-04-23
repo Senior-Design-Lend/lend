@@ -2,3 +2,4 @@
 {{object.price}}
 {{object.condition}}
 {{object.category}}
+{{object.zipCode}}
