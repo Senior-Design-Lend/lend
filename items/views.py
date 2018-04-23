@@ -37,3 +37,4 @@ class deleteItemView(DeleteView):
     model = models.Item
     success_url = reverse_lazy("items:list")
     template_name = 'items/delete.html'
+

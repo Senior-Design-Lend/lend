@@ -5,6 +5,7 @@ app_name = 'transaction'
 
 urlpatterns = [
     path('', views.listTransactionView.as_view(), name="list"),
+    path('transactionList', views.listTransactionView.as_view(), name='list'),
     # path('<int:pk>/', views.detailItemView.as_view(), name="detail"),
     # path('addItem', views.createItemView.as_view(),name="create"),
     # path('update/<int:pk>/', views.updateItemView.as_view(), name="update"),
