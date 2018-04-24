@@ -6,7 +6,7 @@ from django.core import validators
 class ItemForm(forms.ModelForm):
     class Meta():
         model = Item
-        fields = ('name', 'price','condition', 'category', 'zipCode', 'available', 'picture')
+        fields = ('name', 'price','condition', 'category', 'zipCode', 'available', 'picture', 'description')
 
     def clean(self):
         price = self.cleaned_data.get('price')

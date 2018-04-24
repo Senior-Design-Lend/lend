@@ -5,11 +5,12 @@
 {% block body_block %}
 <h1> Detail of Items </h1>
 <div class="jumbotron">
-  <p>name: {{item_detail.name}}</p>
-  <p>price: {{item_detail.price}}</p>
-  <p>owner: {{item_detail.owner}}</p>
-  <p>condition: {{item_detail.condition}}</p>
-  <p>category: {{item_detail.category}}</p>
+  <p>Name: {{item_detail.name}}</p>
+  <p>Price: {{item_detail.price}}</p>
+  <p>Owner: {{item_detail.owner}}</p>
+  <p>Condition: {{item_detail.condition}}</p>
+  <p>Category: {{item_detail.category}}</p>
+  <p>Description: {{item_detail.description}}</p>
   <img src="{{ item_detail.picture.url }}" height=300>
 
 
