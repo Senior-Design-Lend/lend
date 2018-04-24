@@ -15,12 +15,12 @@
 
 {% if user == transaction_detail.owner %}
 <!-- <a class="btn btn-success" href="{% url 'items:create' %}">END TRANSACTION</a> -->
+{% if transaction_detail.active == True %}
 <form action="{% url 'transaction:end' transaction_detail.id %}" method="POST">
   {% csrf_token %}
-    <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}" />
-<input type="submit" value="END TRANSACTION" />
+  <input type="submit" value="END TRANSACTION" />
 </form>
-
+{% endif %}
 {% endif %}
 
 {% endblock %}

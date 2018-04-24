@@ -3,13 +3,6 @@
 {% load staticfiles %}
 
 {% block body_block %}
-<h1> List of Transactions </h1>
-  <ol>
-    {% for t in transactions %}
-    <h2><li><a href="{% url 'transaction:transactionDetail' pk=t.id %}">{{t.item}}</a></li>
-    {% endfor %}
-  </ol>
-
 <h1> Your Active Transactions </h1>
   <ol>
     {% for a in active %}

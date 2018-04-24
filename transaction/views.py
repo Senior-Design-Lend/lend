@@ -5,7 +5,14 @@ from . import forms
 from items.models import Item
 from django.urls import reverse, reverse_lazy
 from django.db.models import Q
+from django.http import HttpResponseRedirect, HttpResponse
+
 # Create your views here.
+def endTransaction(request, id):
+    transaction = models.Transaction.objects.get(id=id)
+    transaction.active = False
+    transaction.save()
+    return HttpResponseRedirect(reverse('transaction:list'))
 
 class listTransactionView(ListView):
     context_object_name = 'transactions'
@@ -32,6 +39,7 @@ class createTransactionView(CreateView):
         form.instance.item = models.Request.objects.get(id=self.kwargs.get('pk')).item
         form.instance.t_end = models.Request.objects.get(id=self.kwargs.get('pk')).end
         transaction.save()
+        models.Request.objects.get(id=self.kwargs.get('pk')).delete()
         return super().form_valid(form)
 
 
