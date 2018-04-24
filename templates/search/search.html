@@ -85,7 +85,10 @@
                             <img src="{{ result.object.picture.url }}">
                           </div>
                           <div class="caption">
-                              <h4>{{ result.object.name }}</h2>
+                              <h4>{{ result.object.name }}</h4>
+                              <h5>
+                                  <a href="{% url 'profile:profile' pk=result.object.owner.id %}">Owned by: {{result.object.owner}}</a>
+                              </h5>
                           </div>
                         </a>
                     </div>

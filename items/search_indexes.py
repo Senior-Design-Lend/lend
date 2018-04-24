@@ -8,7 +8,7 @@ class ItemIndex(indexes.SearchIndex, indexes.Indexable):
     condition = indexes.CharField(model_attr='condition')
     category = indexes.CharField(model_attr='category')
     zipcode = indexes.CharField(model_attr='zipCode')
-
+    owner = indexes.CharField(model_attr='owner')
     update_date = indexes.DateTimeField(model_attr='update_date')
     # NOT WORKING....
     # content_auto = indexes.EdgeNgramField(model_attr='content')
