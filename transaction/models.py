@@ -14,7 +14,7 @@ class Transaction(models.Model):
     t_end = models.DateField()
     active = models.BooleanField(default=True)
     def get_absolute_url(self):
-        return reverse("postman:write", kwargs={'recipients':Request.objects.get(id=self.pk).requestee})
+        return reverse("postman:inbox")
 
 class Request(models.Model):
     requestee = models.ForeignKey(User, on_delete=models.CASCADE, related_name='requestee')

@@ -1,6 +1,6 @@
 <style>
 
-#map 
+#map
 {
     height: 100%;
     width: 60em;
@@ -59,7 +59,7 @@
 
 .cl > a
 {
-    color: #474747;    
+    color: #474747;
 }
 
 .cl > a:hover
@@ -72,7 +72,7 @@
 {
     padding-left: 1em;
 }
-        
+
 </style>
 
 {% extends '../base.html' %}
@@ -114,17 +114,17 @@
         {# Show some example queries to run, maybe query syntax, something else? #}
         <meta http-equiv="REFRESH" content="0;url=/">
     {% endif %}
-    
+
     <div id="mapContainer">
         <div id="map"></div>
     </div>
-    
+
     <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAMJtWB3fptWgxHnWz7DqTfRxPdxWTdGCM"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script type="text/javascript">
-        
+
         var map;
-        
+
         function mapLocation(zip) {
           initMap(zip);
           axios.get('https://maps.googleapis.com/maps/api/geocode/json', {
@@ -136,9 +136,9 @@
               const coor = response['data']['results'][0]['geometry']['location'];
               initMap(coor);
           });
-            
+
         }
-        
+
         function addMarkers(zip, name, picture, description) {
           axios.get('https://maps.googleapis.com/maps/api/geocode/json', {
               params: {
@@ -149,16 +149,16 @@
               const coor = response['data']['results'][0]['geometry']['location'];
               addMarker(coor, name, picture, description);
           });
-            
+
         }
-        
+
         async function initMap(coors) {
             map = new google.maps.Map(document.getElementById('map'), {
               zoom: 11,
               center: coors
             });
         }
-        
+
         function addMarker(coors, name, picture, description) {
             const content = `
                 <div class="content" style="width:12em;height:auto;">
@@ -173,42 +173,42 @@
                   </div>
                 <div>
             `
-            
+
             const infowindow = new google.maps.InfoWindow({
 	        	content: content
         	});
-            
+
             const marker = new google.maps.Marker({
                 position: coors,
                 map: map,
                 title: name
             });
-            
+
             infowindow.open(map,marker);
         }
 
-        
+
         let zips = [];
         let names = [];
         let pictures = [];
         let descriptions = [];
-        
+
         {% for result in page.object_list %}
             zips.push("{{result.object.zipCode}}");
             names.push("{{result.object.name}}");
             pictures.push("{{result.object.picture.url}}");
-            descriptions.push("{{result.object.picture.description}}");
+            descriptions.push("{{result.object.description}}");
         {% endfor %}
 
-        
+
         mapLocation(zips[0]);
-        
+
         for (let i = 0; i < zips.length; i++) {
             addMarkers(zips[i], names[i], pictures[i], descriptions[i]);
         }
 
     </script>
-   
+
 </div>
 
 {% endblock %}
