@@ -62,7 +62,7 @@ class Item(models.Model):
     pub_date = models.DateTimeField(auto_now_add=True)
     update_date = models.DateTimeField(auto_now=True)
     zipCode = models.CharField(max_length=5, default='00000')
-
+    description = models.TextField(max_length=150, default='')
     def get_absolute_url(self):
         return reverse("items:detail", kwargs={'pk':self.pk})
 

@@ -17,6 +17,23 @@
 {% load staticfiles %}
 
 {% block body_block %}
+<<<<<<< HEAD
+=======
+<h1> Detail of Items </h1>
+<div class="jumbotron">
+  <p>Name: {{item_detail.name}}</p>
+  <p>Price: {{item_detail.price}}</p>
+  <p>Owner: {{item_detail.owner}}</p>
+  <p>Condition: {{item_detail.condition}}</p>
+  <p>Category: {{item_detail.category}}</p>
+  <p>Description: {{item_detail.description}}</p>
+  <img src="{{ item_detail.picture.url }}" height=300>
+
+
+
+</div>
+
+>>>>>>> f58beeea0bc6cff71b580e8263e67c11fe55229c
 <div class="container">
   <h1>Detail of Items</h1><br>
   <div class="detail">
