@@ -92,9 +92,9 @@ WSGI_APPLICATION = 'lendproject.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'sample_db',
-        'USER': '',
-        'PASSWORD': '',
+        'NAME': 'lend',
+        'USER': 'ubuntu',
+        'PASSWORD': 'DBpassword',
         'HOST': 'localhost',
         'PORT': '',
     }

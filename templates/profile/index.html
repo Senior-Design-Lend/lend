@@ -1,14 +1,50 @@
+<style>
+.detail
+{
+  float: right;
+  width: 50%;
+  margin-bottom: 5em;
+}
+
+.itemIm
+{
+  float: left;
+  width: 50%;
+}
+</style>
+
 {% extends "../base.html" %}
+
+{% load static %}
+
+{% block styles %}
+  <link rel="stylesheet" href="{% static 'css/home/feed.css' %}">
+{% endblock %}
 
 {% block body_block %}
 
-<div class='jumbotron'>
-  <h1>{{ first }} {{ last }}</h1>
-  <ol>
-    {% for item in items %}
-      <h2><li><a href="{% url 'items:detail' pk=item.id %}">{{item}}</a></li></h2>
-    {% endfor %}
-  </ol>
-  <img src='{{ picture.url }}' height=200>
+<div class="container">
+  <div class="itemIm">
+     <h1>{{ first }} {{ last }}</h1><br>
+    <img src="{{ picture.url }}" width=300>
+  </div><br><br>
+  <div>
+    <h1>{{ first }} {{ last }}'s Items</h1>
+    <div class="allItemsList">
+        <div class="row">
+        {% for item in items %}
+          <div class="cl">
+              <a href="{% url 'items:detail' pk=item.id %}">
+                <div class="thumbnail">
+                  <img src="{{ item.picture.url }}">
+                </div>
+                <div class="caption">
+                    <h2>{{ item }}</h2>
+                </div>
+              </a>
+          </div>
+        {% endfor %}
+      </div>
+  </div><br>
 </div>
 {% endblock %}
