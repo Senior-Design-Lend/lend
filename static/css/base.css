@@ -9,6 +9,7 @@ body
 .navbar
 {
     height: 5em;
+    margin-right: 0;
     padding-left: 3%;
     padding-right: 3%;
     box-shadow: -1px 10px 23px -8px rgba(0,0,0,0.75);
@@ -83,7 +84,7 @@ body
 .dropdown > button
 {
   background-color: #17c44e;
-  border-color: #17c44e;
+  border: none;
 }
 
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open>.dropdown-toggle.btn-primary
@@ -100,4 +101,40 @@ body
 .container
 {
     margin: 2.5em 2em 4em 2em;
+}
+
+
+#postman_menu 
+{
+  list-style-type: none;
+}
+
+#postman_menu > li > h5 > a
+{
+  color: white;
+}
+
+.dropdown-menu
+{
+    background-color: #17c44e;
+}
+
+#profileMenu > ul > li > h5 > a
+{
+  color: white;
+}
+
+.dropdown-menu > ul
+{
+    list-style-type: none;
+}
+
+#profileMenu > ul > li > h5 > a:hover
+{
+  color: white;
+}
+
+#profileMenu
+{
+    padding-right: 2em;
 }

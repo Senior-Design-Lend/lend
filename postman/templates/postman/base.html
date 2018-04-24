@@ -12,11 +12,11 @@
     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
     {% block postman_menu %}
     <ul id="postman_menu">{% postman_unread as unread_count %}
-    <li><a href="{% url 'postman:inbox' %}">{% trans "Inbox" %}{% if unread_count %} <strong>({{ unread_count }})</strong>{% endif %}</a></li>
-    <li><a href="{% url 'postman:sent' %}">{% trans "Sent Messages" %}</a></li>
-    <li><a href="{% url 'postman:write' %}">{% trans "Write" %}</a></li>
-    <li><a href="{% url 'postman:archives' %}">{% trans "Archives" %}</a></li>
-    <li><a href="{% url 'postman:trash' %}">{% trans "Trash" %}</a></li>
+    <li><h5><a href="{% url 'postman:inbox' %}">{% trans "Inbox" %}{% if unread_count %} <strong>({{ unread_count }})</strong>{% endif %}</a></h5></li>
+    <li><h5><a href="{% url 'postman:sent' %}">{% trans "Sent" %}</a><h5></li>
+    <li><h5><a href="{% url 'postman:write' %}">{% trans "Write" %}</a><h5></li>
+    <li><h5><a href="{% url 'postman:archives' %}">{% trans "Archives" %}</a><h5></li>
+    <li><h5><a href="{% url 'postman:trash' %}">{% trans "Trash" %}</a><h5></li>
     </ul>
     {% endblock %}
     </div>
