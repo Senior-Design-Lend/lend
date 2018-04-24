@@ -3,3 +3,4 @@
 {{object.condition}}
 {{object.category}}
 {{object.zipCode}}
+{{object.owner}}
