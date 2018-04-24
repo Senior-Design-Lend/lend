@@ -1,74 +1,74 @@
 <style>
 
-      #map 
-      {
-        height: 100%;
-        width: 60em;
-        margin-bottom: 3em;
-        margin-left: 2em;
-      }
-      
-      #mapContainer
-      {
-          height: 100%;
-          width: 50%;
-          float: right;
-      }
-       
-       #mainSearch
-       {
-           margin-top: 1em;
-       }
+#map 
+{
+    height: 100%;
+    width: 60em;
+    margin-bottom: 3em;
+    margin-left: 10em;
+}
 
-        .cl
-        {
-            margin-right: 3em;
-            position: relative;
-        }
+#mapContainer
+{
+  height: 100%;
+  width: 50%;
+  float: right;
+}
+
+#mainSearch
+{
+   margin-top: 1em;
+}
+
+.cl
+{
+    margin-right: 3em;
+    position: relative;
+}
+
+.caption
+{
+	text-align: center;
+	margin-top: 1em;
+	width: 100%;
+	margin-bottom: 3.5em;
+}
+
+.itemsList
+{
+    float: left;
+    width: 50%;
+}
+
+.thumbnail
+{
+    box-shadow: 0px 9px 30px -17px rgba(0,0,0,0.75);
+    width: 12em;
+    height: 10em;
+}
+
+
+.thumbnail > img
+{
+    display: block;
+    margin: auto;
+    max-width: 100%;
+    max-height: 10em;
+    margin-top: 2em;
+}
+
+.cl > a
+{
+    color: #474747;    
+}
+
+.cl > a:hover
+{
+    text-decoration: none;
+    color: #707070;
+}
         
-        .caption
-        {
-        	text-align: center;
-        	margin-top: 1em;
-        	width: 100%;
-        	margin-bottom: 3.5em;
-        }
-        
-        .itemsList
-        {
-            float: left;
-            width: 50%;
-        }
-        
-        .thumbnail
-        {
-            box-shadow: 0px 9px 30px -17px rgba(0,0,0,0.75);
-            width: 12em;
-            height: 10em;
-        }
-        
-        
-        .thumbnail > img
-        {
-            display: block;
-            margin: auto;
-            max-width: 100%;
-            max-height: 10em;
-            margin-top: 2em;
-        }
-        
-        .cl > a
-        {
-            color: #474747;    
-        }
-        
-        .cl > a:hover
-        {
-            text-decoration: none;
-            color: #707070;
-        }
-        
-    </style>
+</style>
 
 {% extends '../base.html' %}
 
@@ -131,7 +131,7 @@
             
         }
         
-        function addMarkers(zip, name, picture) {
+        function addMarkers(zip, name, picture, description) {
           axios.get('https://maps.googleapis.com/maps/api/geocode/json', {
               params: {
                   address: zip,
@@ -139,7 +139,7 @@
               }
           }).then(function(response){
               const coor = response['data']['results'][0]['geometry']['location'];
-              addMarker(coor, name, picture);
+              addMarker(coor, name, picture, description);
           });
             
         }
@@ -151,7 +151,7 @@
             });
         }
         
-        function addMarker(coors, name, picture) {
+        function addMarker(coors, name, picture, description) {
             const content = `
                 <div class="content" style="width:12em;height:auto;">
                     <h4 style="font-size:1.5em;">` + name + `</h4>
@@ -160,7 +160,7 @@
                         <img src="` + picture + `" width="60" height="40"/>
                       </div>
                     <div style="float: right; width: 50%;">
-                      <p>This is a description</p>
+                      <p>` + description + `</p>
                     </div>
                   </div>
                 <div>
@@ -183,17 +183,20 @@
         let zips = [];
         let names = [];
         let pictures = [];
+        let descriptions = [];
+        
         {% for result in page.object_list %}
             zips.push("{{result.object.zipCode}}");
             names.push("{{result.object.name}}");
             pictures.push("{{result.object.picture.url}}");
+            descriptions.push("{{result.object.picture.description}}");
         {% endfor %}
 
         
         mapLocation(zips[0]);
         
         for (let i = 0; i < zips.length; i++) {
-            addMarkers(zips[i], names[i], pictures[i]);
+            addMarkers(zips[i], names[i], pictures[i], descriptions[i]);
         }
 
     </script>
