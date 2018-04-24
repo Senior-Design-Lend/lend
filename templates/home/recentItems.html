@@ -6,19 +6,19 @@
         <a href="{% url 'items:detail' pk=userItems.0.pk %}">
           <div class="thumbnail">
             <img src="{{ userItems.0.picture.url }}">
-            <div class="caption">
-              <h3>{{ userItems.0 }}</h3>
-            </div>
           </div>
+          <div class="caption">
+              <h2>{{ userItems.0 }}</h2>
+            </div>
         </a>
       </div>
       <div class="cl">
         <a href="{% url 'items:detail' pk=userItems.1.pk %}">
           <div class="thumbnail">
             <img src="{{ userItems.1.picture.url }}">
-            <div class="caption">
-              <h3>{{ userItems.1 }}</h3>
-            </div>
+          </div>
+          <div class="caption">
+              <h2>{{ userItems.1 }}</h2>
           </div>
         </a>
       </div>
@@ -26,9 +26,9 @@
         <a href="{% url 'items:detail' pk=userItems.2.pk %}">
           <div class="thumbnail">
             <img src="{{ userItems.2.picture.url }}">
-            <div class="caption">
-              <h3>{{ userItems.2 }}</h3>
-            </div>
+          </div>
+          <div class="caption">
+              <h2>{{ userItems.2 }}</h2>
           </div>
         </a>
       </div>
@@ -36,9 +36,9 @@
         <a href="{% url 'items:detail' pk=userItems.3.pk %}">
           <div class="thumbnail">
             <img src="{{ userItems.3.picture.url }}">
-            <div class="caption">
-              <h3>{{ userItems.3 }}</h3>
-            </div>
+          </div>
+          <div class="caption">
+              <h2>{{ userItems.3 }}</h2>
           </div>
         </a>
       </div>
@@ -46,9 +46,9 @@
         <a href="{% url 'items:detail' pk=userItems.4.pk %}">
           <div class="thumbnail">
             <img src="{{ userItems.4.picture.url }}">
-            <div class="caption">
-              <h3>{{ userItems.4 }}</h3>
-            </div>
+          </div>
+          <div class="caption">
+              <h2>{{ userItems.4 }}</h2>
           </div>
         </a>
       </div>
@@ -58,9 +58,9 @@
            <a href="{% url 'items:detail' pk=item.pk %}">
               <div class="thumbnail">
                 <img src="{{ item.picture.url }}">
-                <div class="caption">
-                  <h3>{{ item }}</h3>
-                </div>
+              </div>
+              <div class="caption">
+                  <h2>{{ item }}</h2>
               </div>
             </a>
       </div>

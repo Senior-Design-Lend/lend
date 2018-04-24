@@ -1,13 +1,73 @@
 <style>
-      #map {
-        height: 400px;
-        width: 100%;
-       }
+
+      #map 
+      {
+        height: 100%;
+        width: 60em;
+        margin-bottom: 3em;
+        margin-left: 2em;
+      }
+      
+      #mapContainer
+      {
+          height: 100%;
+          width: 50%;
+          float: right;
+      }
        
        #mainSearch
        {
            margin-top: 1em;
        }
+
+        .cl
+        {
+            margin-right: 3em;
+            position: relative;
+        }
+        
+        .caption
+        {
+        	text-align: center;
+        	margin-top: 1em;
+        	width: 100%;
+        	margin-bottom: 3.5em;
+        }
+        
+        .itemsList
+        {
+            float: left;
+            width: 50%;
+        }
+        
+        .thumbnail
+        {
+            box-shadow: 0px 9px 30px -17px rgba(0,0,0,0.75);
+            width: 12em;
+            height: 10em;
+        }
+        
+        
+        .thumbnail > img
+        {
+            display: block;
+            margin: auto;
+            max-width: 100%;
+            max-height: 10em;
+            margin-top: 2em;
+        }
+        
+        .cl > a
+        {
+            color: #474747;    
+        }
+        
+        .cl > a:hover
+        {
+            text-decoration: none;
+            color: #707070;
+        }
+        
     </style>
 
 {% extends '../base.html' %}
@@ -15,15 +75,25 @@
 {% block body_block %}
 <div class="container">
     {% if query %}
-        <h3>Results</h3>
-
-        {% for result in page.object_list %}
-            <p>
-                <a href="{{result.object.get_absolute_url}}">{{ result.object.name }}</a>
-            </p>
-        {% empty %}
-            <p>No results found.</p>
-        {% endfor %}
+        <h1>Results</h1>
+            <div class="itemsList">
+                <div class="row">
+                    {% for result in page.object_list %}
+                    <div class="cl">
+                        <a href="{{result.object.get_absolute_url}}">
+                          <div class="thumbnail">
+                            <img src="{{ result.object.picture.url }}">
+                          </div>
+                          <div class="caption">
+                              <h4>{{ result.object.name }}</h2>
+                          </div>
+                        </a>
+                    </div>
+                    {% empty %}
+                    <p>No results found.</p>
+                    {% endfor %}
+                </div>
+            </div>
 
         {% if page.has_previous or page.has_next %}
             <div>
@@ -34,12 +104,17 @@
         {% endif %}
     {% else %}
         {# Show some example queries to run, maybe query syntax, something else? #}
+        <meta http-equiv="REFRESH" content="0;url=/">
     {% endif %}
     
-    <div id="map"></div>
+    <div id="mapContainer">
+        <div id="map"></div>
+    </div>
+    
     <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAMJtWB3fptWgxHnWz7DqTfRxPdxWTdGCM"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script type="text/javascript">
+        
         var map;
         
         function mapLocation(zip) {
@@ -56,7 +131,7 @@
             
         }
         
-        function addMarkers(zip) {
+        function addMarkers(zip, name, picture) {
           axios.get('https://maps.googleapis.com/maps/api/geocode/json', {
               params: {
                   address: zip,
@@ -64,7 +139,7 @@
               }
           }).then(function(response){
               const coor = response['data']['results'][0]['geometry']['location'];
-              addMarker(coor);
+              addMarker(coor, name, picture);
           });
             
         }
@@ -76,28 +151,51 @@
             });
         }
         
-        function addMarker(coors) {
+        function addMarker(coors, name, picture) {
+            const content = `
+                <div class="content" style="width:12em;height:auto;">
+                    <h4 style="font-size:1.5em;">` + name + `</h4>
+                    <div class="bodyContent">
+                      <div style="float: left; width: 5%">
+                        <img src="` + picture + `" width="60" height="40"/>
+                      </div>
+                    <div style="float: right; width: 50%;">
+                      <p>This is a description</p>
+                    </div>
+                  </div>
+                <div>
+            `
+            
+            const infowindow = new google.maps.InfoWindow({
+	        	content: content
+        	});
+            
             const marker = new google.maps.Marker({
                 position: coors,
-                map: map
+                map: map,
+                title: name
             });
+            
+            infowindow.open(map,marker);
         }
 
-        //convertZipToCoor("{{ page.object_list.0.object.zipCode }}");
-        //mapLocation("{{ page.object_list }})";
         
         let zips = [];
+        let names = [];
+        let pictures = [];
         {% for result in page.object_list %}
             zips.push("{{result.object.zipCode}}");
+            names.push("{{result.object.name}}");
+            pictures.push("{{result.object.picture.url}}");
         {% endfor %}
+
         
         mapLocation(zips[0]);
         
         for (let i = 0; i < zips.length; i++) {
-            addMarkers(zips[i]);
+            addMarkers(zips[i], names[i], pictures[i]);
         }
-        
-        console.log(zips);
+
     </script>
    
 </div>
