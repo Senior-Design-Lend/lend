@@ -57,7 +57,6 @@ class UserProfileInfo(models.Model):
     interest1 = models.CharField(choices=CATEGORY_CHOICES, max_length=30, default='None')
     interest2 = models.CharField(choices=CATEGORY_CHOICES, max_length=30, default='None')
     interest3 = models.CharField(choices=CATEGORY_CHOICES, max_length=30, default='None')
-    ratings = models.DecimalField(max_digits=3, decimal_places=2, default='0')
     city = models.CharField(max_length=50, blank=True)
     state = models.CharField(choices=STATES, max_length=30, blank=True)
     profile_pic = models.ImageField(upload_to='profile_pic', blank=True)
