@@ -17,10 +17,17 @@
 </div>
 
 <div class="container">
+  {% if user == item_detail.owner %}
   <p><a class="btn btn-warning" href="{% url 'items:update' pk=item_detail.pk %}">UPDATE</a></p>
   <p><a class="btn btn-danger" href="{% url 'items:delete' pk=item_detail.pk %}">DELETE</a></p>
+  {% else %}
+  {% if user.is_authenticated %}
+  <p><a class="btn btn-success" href="{% url 'transaction:request' pk=item_detail.pk%}">Request Item</a></p>
+  {% else %}
+  <p><a class="btn btn-success" onclick="$('#login-modal').modal('show')">Request Item</a></p>
+  {% endif %}
+  {% endif %}
   <p><a class="btn btn-warning" href="{% url 'items:list' %}">BACK</a></p>
 
 </div>
-
 {% endblock %}

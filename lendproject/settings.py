@@ -46,9 +46,11 @@ INSTALLED_APPS = [
     'whoosh',
     'haystack',
     'login',
+    'postman',
     'userprofile',
     'home',
     'items',
+    'transaction',
 ]
 
 MIDDLEWARE = [
@@ -89,9 +91,9 @@ WSGI_APPLICATION = 'lendproject.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'lend',
-        'USER': 'ubuntu',
-        'PASSWORD': 'DBpassword',
+        'NAME': 'sample_db',
+        'USER': '',
+        'PASSWORD': '',
         'HOST': 'localhost',
         'PORT': '',
     }
@@ -147,6 +149,7 @@ STATICFILES_DIRS = [
         STATIC_DIR
     ]
 
+
 MEDIA_ROOT = MEDIA_DIR
 MEDIA_URL = '/media/'
 
@@ -163,3 +166,5 @@ HAYSTACK_CONNECTIONS = {
 # HAYSTACK_SIGNAL_PROCESSOR = 'haystack.signals.BaseSignalProcessor'
 # No need to update index
 HAYSTACK_SIGNAL_PROCESSOR = 'haystack.signals.RealtimeSignalProcessor'
+
+POSTMAN_AUTO_MODERATE_AS = True  # default is None

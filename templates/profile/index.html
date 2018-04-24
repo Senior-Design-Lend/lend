@@ -9,9 +9,15 @@
     <input type="submit" value="Click here!" />
   </form>
   <h2>Recent Transactions:</h2>
+  <form action="../transaction/transactionList">
+    <input type="submit" value="Click here!" />
+  </form>
+
   <form action="../items/addItem">
     <input type="submit" value="Post a new Item!" />
   </form>
+  
+  <a href="{% url 'transaction:requestList' %}">Your Requests</a>
 </div>
 {% else %}
 <div class='jumbotron'>
@@ -19,6 +25,3 @@
 </div>
 {% endif %}
 {% endblock %}
-
-
-
