@@ -1,0 +1,26 @@
+{% extends "../base.html" %}
+
+{% load staticfiles %}
+
+{% block body_block %}
+<h1> Transaction Details </h1>
+<div class="jumbotron">
+  <p>Owner: {{transaction_detail.owner}}</p>
+  <p>Borrower: {{transaction_detail.borrower}}</p>
+  <p>Item: {{transaction_detail.item}}</p>
+  <img src="{{ transaction_detail.item.picture.url }}" height=300>
+  <p>Start Date: {{transaction_detail.t_start}}</p>
+  <p>End Date: {{transaction_detail.t_end}}</p>
+</div>
+
+{% if user == transaction_detail.owner %}
+<!-- <a class="btn btn-success" href="{% url 'items:create' %}">END TRANSACTION</a> -->
+<form action="{% url 'transaction:end' transaction_detail.id %}" method="POST">
+  {% csrf_token %}
+    <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}" />
+<input type="submit" value="END TRANSACTION" />
+</form>
+
+{% endif %}
+
+{% endblock %}
