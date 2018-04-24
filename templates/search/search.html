@@ -67,6 +67,11 @@
     text-decoration: none;
     color: #707070;
 }
+
+#noResults
+{
+    padding-left: 1em;
+}
         
 </style>
 
@@ -93,7 +98,7 @@
                         </a>
                     </div>
                     {% empty %}
-                    <p>No results found.</p>
+                    <p id="noResults">No results found.</p>
                     {% endfor %}
                 </div>
             </div>

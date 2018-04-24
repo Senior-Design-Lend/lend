@@ -1,19 +1,50 @@
 {% extends "../base.html" %}
 
-{% load staticfiles %}
+{% load static %}
+
+{% block styles %}
+  <link rel="stylesheet" href="{% static 'css/home/feed.css' %}">
+{% endblock %}
 
 {% block body_block %}
-<h1> Your Active Transactions </h1>
-  <ol>
-    {% for a in active %}
-    <h2><li><a href="{% url 'transaction:transactionDetail' pk=a.id %}">{{a.item}}</a></li>
-    {% endfor %}
-  </ol>
+<div class="container">
+  <h1> Your Active Transactions </h1>
+  <div class="allItemsList">
+      <div class="row">
+      {% for a in active %}
+        <div class="cl">
+            <a href="{% url 'transaction:transactionDetail' pk=a.id %}">
+              <div class="thumbnail">
+                <img src="{{ a.item.picture.url }}">
+              </div>
+              <div class="caption">
+                  <h2>{{ a.item }}</h2>
+                  <h2>Owner: {{ a.owner }}</h2>
+                  <h2>Borrower: {{ a.borrower }}</h2>
+              </div>
+            </a>
+        </div>
+      {% endfor %}
+      </div>
+  </div><br>
 
 <h1> Past Transactions </h1>
-  <ol>
-    {% for p in past %}
-    <h2><li><a href="{% url 'transaction:transactionDetail' pk=p.id %}">{{p.item}}</a></li>
-    {% endfor %}
-  </ol>
+  <div class="allItemsList">
+      <div class="row">
+      {% for p in past %}
+        <div class="cl">
+            <a href="{% url 'transaction:transactionDetail' pk=p.id %}">
+              <div class="thumbnail">
+                <img src="{{ p.item.picture.url }}">
+              </div>
+              <div class="caption">
+                  <h2>{{ p.item }}</h2>
+                  <h2>Owner: {{ p.owner }}</h2>
+                  <h2>Borrower: {{ p.borrower }}</h2>
+              </div>
+            </a>
+        </div>
+      {% endfor %}
+      </div>
+  </div><br>
 {% endblock %}

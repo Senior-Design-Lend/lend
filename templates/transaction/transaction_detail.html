@@ -1,26 +1,43 @@
+<style>
+.detail
+{
+  float: left;
+  width: 50%;
+}
+
+.itemIm
+{
+  float: right;
+  width: 50%;
+}
+</style>
+
 {% extends "../base.html" %}
 
 {% load staticfiles %}
 
 {% block body_block %}
-<h1> Transaction Details </h1>
-<div class="jumbotron">
-  <p>Owner: {{transaction_detail.owner}}</p>
-  <p>Borrower: {{transaction_detail.borrower}}</p>
-  <p>Item: {{transaction_detail.item}}</p>
-  <img src="{{ transaction_detail.item.picture.url }}" height=300>
-  <p>Start Date: {{transaction_detail.t_start}}</p>
-  <p>End Date: {{transaction_detail.t_end}}</p>
+<div class="container">
+  <h1>Transaction Details</h1><br>
+  <div class="detail">
+    <h4>Owner: {{transaction_detail.owner}}</h4>
+    <h4>Borrower: {{transaction_detail.borrower}}</h4>
+    <h4>Item: {{transaction_detail.item}}</h4>
+    <h4>Start Date: {{transaction_detail.t_start}}</h4>
+    <h4>End Date: {{transaction_detail.t_end}}</h4>
+    
+    {% if user == transaction_detail.owner %}
+    {% if transaction_detail.active == True %}
+    <form action="{% url 'transaction:end' transaction_detail.id %}" method="POST">
+      {% csrf_token %}
+      <input type="submit" value="END TRANSACTION" />
+    </form>
+    {% endif %}
+    {% endif %}
+  </div>
+  <div class="itemIm">
+    <img src="{{ transaction_detail.item.picture.url }}" height=300>
+  </div>
 </div>
-
-{% if user == transaction_detail.owner %}
-<!-- <a class="btn btn-success" href="{% url 'items:create' %}">END TRANSACTION</a> -->
-{% if transaction_detail.active == True %}
-<form action="{% url 'transaction:end' transaction_detail.id %}" method="POST">
-  {% csrf_token %}
-  <input type="submit" value="END TRANSACTION" />
-</form>
-{% endif %}
-{% endif %}
 
 {% endblock %}

@@ -1,16 +1,31 @@
+<style>
+.options > input
+{
+  display: inline;
+  margin-right: 5em;
+}
+
+.options > h5
+{
+  display: inline;
+}
+</style>
+
 {% extends "../base.html" %}
 
 {% load staticfiles %}
 
 {% block body_block %}
-<h1> Delete {{item.name}} </h1>
-<form method="POST">
-  {% csrf_token %}
-  {{ form.as_p }}
-  <input type="submit" class="btn btn-danger" value="Delete">
-  <a href="{% url 'items:list' %}">Cancel</a>
-
-</form>
-
+<div class="container">
+  <h1> Delete {{item.name}} </h1>
+  <form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <div class="options">
+      <input type="submit" class="btn btn-danger" value="Delete">
+      <h5><a href="{% url 'items:list' %}">Cancel</a></h5>
+    </div>
+  </form>
+</div>
 
 {% endblock %}
