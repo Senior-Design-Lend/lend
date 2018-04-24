@@ -37,14 +37,13 @@
           {% block nav_block %}
           <a class="nav-item nav-link active" href="{% url 'postman:inbox' %}">Messages <span class="sr-only">(current)</span></a>
           {% endblock %}
-          <!-- <a class="nav-item nav-link active" href="{% url 'profile:profile' %}">{{ user }} <span class="sr-only">(current)</span></a> -->
           <div class="dropdown " >
               <button class="nav-item nav-link active" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
                   {{ user }}
               </button>
               <div id="profileMenu" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                 <ul>
-                  <li><h5><a href="{% url 'profile:profile' %}">Profile</a></h5></li>
+                  <li><h5><a href="{% url 'profile:profile' pk=user.id%}">Profile</a></h5></li>
                   <li><h5><a href="{% url 'items:list' %}">Items</a></h5></li>
                   <li><h5><a href="{% url 'transaction:list' %}">Transactions</a></h5></li>
                   <li><h5><a href="{% url 'transaction:requestList' %}">Requests</a></h5></li>
