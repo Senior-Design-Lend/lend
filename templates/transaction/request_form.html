@@ -5,12 +5,11 @@
 {% block body_block %}
 
 <div class="container">
-  <h1>REQUEST ITEM</h1>
+  <h1>REQUEST ITEM</h1><br>
   <form enctype="multipart/form-data" method="POST" >
     {% csrf_token %}
     {{ form.as_p }}
     <input type="submit" class="btn btn-primary" value="Submit">
-
   </form>
 </div>
 

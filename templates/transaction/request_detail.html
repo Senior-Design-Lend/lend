@@ -1,20 +1,37 @@
+<style>
+.detail
+{
+  float: left;
+  width: 50%;
+}
+
+.itemIm
+{
+  float: right;
+  width: 50%;
+}
+</style>
+
 {% extends "../base.html" %}
 
 {% load staticfiles %}
 
 {% block body_block %}
-<h1> Request Details </h1>
-<div class="jumbotron">
-  <p>Requester: {{request_detail.requester}}</p>
-  <p>Owner: {{request_detail.requestee}}</p>
-  <p>Item: {{request_detail.item}}</p>
-  <img src="{{ request_detail.item.picture.url }}" height=300>
-  <p>Start Date: {{request_detail.start}}</p>
-  <p>End Date: {{request_detail.end}}</p>
-</div>
-{% if request_detail.requestee == user %}
-<p><a class="btn btn-success" href="{% url 'transaction:transactionForm' pk=request_detail.pk%}">APPROVE</a></p>
-{% endif %}
-
+<div class="container">
+  <h1>Request Details</h1><br>
+  <div class="detail">
+    <h4>Requester: {{request_detail.requester}}</h4>
+    <h4>Owner: {{request_detail.requestee}}</h4>
+    <h4>Item: {{request_detail.item}}</h4>
+    <h4>Start Date: {{request_detail.start}}</h4>
+    <h4>End Date: {{request_detail.end}}</h4><br><br>
+    
+    {% if request_detail.requestee == user %}
+    <p><a class="btn btn-success" href="{% url 'transaction:transactionForm' pk=request_detail.pk%}">APPROVE</a></p>
+    {% endif %}
+  </div>
+  <div class="itemIm">
+    <img src="{{ request_detail.item.picture.url }}" height=300>
+  </div>
 
 {% endblock %}

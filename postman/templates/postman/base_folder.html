@@ -8,6 +8,7 @@ If the real implementation is to be used, just make sure that 'dj_pagination' is
 in the INSTALLED_APPS setting.
 {% endcomment %}
 {% block content %}
+<div class="container">
 <div id="postman">
 <h1>{% block pm_folder_title %}{% endblock %}</h1>
 {% autopaginate pm_messages %}
@@ -60,5 +61,6 @@ in the INSTALLED_APPS setting.
 {% endif %}
 {% endif %}
 {% block pm_footer_info %}{% endblock %}
+</div>
 </div>
 {% endblock content %}

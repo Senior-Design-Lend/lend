@@ -1,21 +1,47 @@
 {% extends "../base.html" %}
 
-{% load staticfiles %}
+{% load static %}
+
+{% block styles %}
+  <link rel="stylesheet" href="{% static 'css/home/feed.css' %}">
+{% endblock %}
 
 {% block body_block %}
 <div class="container">
-  <h1> These are the items you requested! </h1>
-  <ol>
-    {% for o in outgoing %}
-    <h2><li><a href="{% url 'transaction:requestDetail' pk=o.id %}">{{o.item.name}}</a></li>
-    {% endfor %}
-  </ol>
-  <h1> These are the items people are requesting! </h1>
-    <ol>
-      {% for i in incoming %}
-      <h2><li><a href="{% url 'transaction:requestDetail' pk=i.id %}">{{i.item.name}}</a></li>
+  <h3> These are the items you requested! </h3>
+  <div class="allItemsList">
+      <div class="row">
+      {% for o in outgoing %}
+        <div class="cl">
+            <a href="{% url 'transaction:requestDetail' pk=o.id %}">
+              <div class="thumbnail">
+                <img src="{{ o.item.picture.url }}">
+              </div>
+              <div class="caption">
+                  <h2>{{ o.item }}</h2>
+              </div>
+            </a>
+        </div>
       {% endfor %}
-    </ol>
+      </div>
+  </div><br>
+  <h3> These are the items people are requesting! </h3>
+    <div class="allItemsList">
+      <div class="row">
+      {% for i in incoming %}
+        <div class="cl">
+            <a href="{% url 'transaction:requestDetail' pk=i.id %}">
+              <div class="thumbnail">
+                <img src="{{ i.item.picture.url }}">
+              </div>
+              <div class="caption">
+                  <h2>{{ i.item }}</h2>
+              </div>
+            </a>
+        </div>
+      {% endfor %}
+      </div>
+  </div><br>
 </div>
 
 {% endblock %}
