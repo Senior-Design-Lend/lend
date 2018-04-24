@@ -6,14 +6,14 @@
 <h1> Your Active Transactions </h1>
   <ol>
     {% for a in active %}
-    <h2><li><a href="{% url 'transaction:transactionDetail' pk=a.id %}">{{a.item}}</a></li>
+    <h2><li><a href="{% url 'transaction:transactionDetail' pk=a.id %}">{{a.item}}</a></li></h2>
     {% endfor %}
   </ol>
 
 <h1> Past Transactions </h1>
   <ol>
     {% for p in past %}
-    <h2><li><a href="{% url 'transaction:transactionDetail' pk=p.id %}">{{p.item}}</a></li>
+    <h2><li><a href="{% url 'transaction:transactionDetail' pk=p.id %}">{{p.item}}</a></li></h2>
     {% endfor %}
   </ol>
 {% endblock %}
